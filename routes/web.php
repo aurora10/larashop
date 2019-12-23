@@ -17,7 +17,29 @@
 
 Route::resource('/', 'ProductController');
 
-Route::resource('/signup', 'UsersController');
+Route::group(['prefix' => 'user'], function() {
 
-//Route::get('/getSingin', 'UserController@getSignin');
-Route::resource('getSignin', 'UsersController');
+    Route::group(['middleware' => 'guest'],function() {
+        Route::get('signin','UsersController@getSignin');
+        Route::post('signin','UsersController@postSignin')->name('user.signin');
+
+
+        Route::resource('/signup', 'UsersController');
+    });
+
+    Route::group(['middleware' => 'auth'],function() {
+        Route::get('logout', 'UsersController@getLogout')->name('user.logout');
+        Route::get('profile' ,'UsersController@getProfile')->name('user.profile');
+    });
+
+
+
+
+
+
+
+});
+
+
+
+

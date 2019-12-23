@@ -15,10 +15,17 @@
                     <i class="fas fa-user"></i> User Management
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{route('signup.index')}}">Signup</a>
-                    <a class="dropdown-item" href="#">Signin</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    @if(Auth::check())
+                        <a class="dropdown-item" href="{{route('user.profile')}}">User Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{route('user.logout')}}">Logout</a>
+                    @else
+                        <a class="dropdown-item" href="{{route('signup.index')}}">Signup</a>
+                        <a class="dropdown-item" href="{{route('user.signin')}}">Signin</a>
+                    @endif
+
+
+
                 </div>
             </li>
 

@@ -12,7 +12,7 @@
                 </div>
             @endif
 
-            <form action="{{route('signup.store')}}" method="post">
+            <form action="{{route('user.signin')}}" method="post">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" id="email" name="email" class="form-control">

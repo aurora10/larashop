@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -15,17 +15,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-
             return view('user.signup');
 
-
     }
 
-    public function getSignin() {
-            return view('user.signin');
-    }
-
-    public function postSignin() {}
 
 
     /**
@@ -56,7 +49,9 @@ class UsersController extends Controller
             'password' => bcrypt($request->input('password'))
         ]);
         $user->save();
-        return redirect()->route('index');
+        Auth::login($user);
+        return redirect()->route('user.profile');
+
     }
 
     /**
@@ -102,5 +97,30 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public  function postSignin(Request $request) {
+        $this->validate($request, [
+            'email' => 'email|required',
+            'password' => 'required|min:6'
+        ]);
+
+        if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect()->route('user.profile');
+        }
+        return redirect()->back();
+    }
+
+    public function getSignin() {
+        return view('user.signin');
+    }
+
+    public function getProfile() {
+        return view('user.profile');
+    }
+
+    public function getLogout() {
+        Auth::logout();
+        return redirect()->back();
     }
 }
