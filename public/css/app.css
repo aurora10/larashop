@@ -11356,20 +11356,3 @@ a.text-dark:focus {
   }
 }
 
-.thumbnail img {
-    text-align: center;
-}
-
-.price {
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-.thumbnail .description {
-    color: gray;
-}
-
-.like {
-    font-size: 1.5rem;
-}

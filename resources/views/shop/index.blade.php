@@ -1,3 +1,5 @@
+
+
 @extends('layouts.master')
 
 @section('title')
@@ -26,7 +28,7 @@
 
                         <div class="buy d-flex justify-content-between align-items-center">
                             <div class="price text-success"><h5 class="mt-4">$ {{$product->price}}</h5></div>
-                            <a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="{{route('product.addToCart', ['id'=>$product->id] )}}"  class="btn btn-danger mt-3 "><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                         </div>
                     </div>
                 </div>

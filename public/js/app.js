@@ -40934,8 +40934,8 @@ _fortawesome_fontawesome__WEBPACK_IMPORTED_MODULE_0__["default"].library.add(_fo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\larashop\larashop\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\larashop\larashop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\larashop\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\larashop\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
